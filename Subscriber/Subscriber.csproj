@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="StructureMap">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Libs\4.0\Rhino.ServiceBus\StructureMap.dll</HintPath>
+      <HintPath>..\Libs\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,11 +56,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\work\hf\git\rhino-esb\Rhino.ServiceBus.StructureMap\Rhino.ServiceBus.StructureMap.csproj">
+    <ProjectReference Include="..\..\rhino-esb\Rhino.ServiceBus.StructureMap\Rhino.ServiceBus.StructureMap.csproj">
       <Project>{C0B1E3BD-3481-4E0E-866F-5BEC471C2F4C}</Project>
       <Name>Rhino.ServiceBus.StructureMap</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\..\work\hf\git\rhino-esb\Rhino.ServiceBus\Rhino.ServiceBus.csproj">
+    <ProjectReference Include="..\..\rhino-esb\Rhino.ServiceBus\Rhino.ServiceBus.csproj">
       <Project>{1B21C8A5-5E0E-412B-A7F4-9F28B4427F21}</Project>
       <Name>Rhino.ServiceBus</Name>
     </ProjectReference>
