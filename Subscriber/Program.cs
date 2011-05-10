@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Messages;
 using Publisher;
+using Rhino.ServiceBus;
 using Rhino.ServiceBus.Hosting;
 using Rhino.ServiceBus.Internal;
 using Rhino.ServiceBus.Msmq;
@@ -14,14 +16,26 @@ namespace Subscriber {
 			//TestMain();
 			//return;
 			QueueUtil.Prepare("msmq://localhost/rhino_subscriber", QueueType.Standard);
+			QueueUtil.Prepare("msmq://localhost/audit.queue", QueueType.Standard);
 
 			var host = new DefaultHost();
 			host.Start<SubscriberBootStrapper>();
 
+
+		    var lBus = host.Bus as IServiceBus;
+            if (lBus == null) {
+                return;
+            }
 			Console.WriteLine("Subscriber is listening...");
 
-
-			Console.ReadLine();
+            while (true) {
+                var lLine = Console.ReadLine();
+                if (lLine.StartsWith("q")) {
+                    return;
+                }
+                lBus.Send(new HelloWorldMessage { Say = "Hello World!" });
+                Console.WriteLine("Sending HelloWorld!");
+            }
 		}
 
 		private static void TestMain() {

@@ -1,29 +1,20 @@
 ﻿<?xml version="1.0"
       encoding="utf-8"?>
 <firmen>
-  <firma id="1"
-         name="Erste Firma">
-    <services server="localhost"
-              logserver="hf">
-      <verkauf queue="f1_verkauf"
-               logqueue="f1_logverkauf"
-               worker="3" />
+  <firma id="1" name="Erste Firma">
+    <services server="localhost" logserver="hf">
+      <verkauf queue="f1_verkauf" logqueue="f1_logverkauf" worker="3" />
       <einkauf queue="f1_einkauf" />
       <lager queue="f1_lager" />
       <system queue="f1_einkauf" />
     </services>
     <arbeitsplaetze>
-      <arbeitsplatz id="0017"
-                    name="Kasse" />
+      <arbeitsplatz id="0017" name="Kasse" />
     </arbeitsplaetze>
   </firma>
-  <firma id="2"
-         name="Zweite Firma">
-    <services server="localhost"
-              logserver="ct">
-      <alle queue="f2_tradeline"
-            logqueue="f2_audit"
-            worker="5" />
+  <firma id="2" name="Zweite Firma">
+    <services server="localhost" logserver="ct">
+      <alle queue="f2_tradeline" logqueue="f2_audit" worker="5" />
     </services>
   </firma>
 </firmen>

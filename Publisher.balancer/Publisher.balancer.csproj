@@ -5,18 +5,18 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9AF88862-9C1B-488D-9A9D-366141D8B846}</ProjectGuid>
+    <ProjectGuid>{9DB108A4-1A03-45AA-A57D-B2D40161B735}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Subscriber</RootNamespace>
-    <AssemblyName>Subscriber</AssemblyName>
+    <RootNamespace>Publisher.balancer</RootNamespace>
+    <AssemblyName>Publisher.balancer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -35,12 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\Libs\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\Libs\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,22 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWorldHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubscriberBootStrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\rhino-esb\Rhino.ServiceBus.Autofac\Rhino.ServiceBus.Autofac.csproj">
       <Project>{E18B8442-40AF-4FA2-9FB0-FC05FC994CEA}</Project>
       <Name>Rhino.ServiceBus.Autofac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\rhino-esb\Rhino.ServiceBus.Castle\Rhino.ServiceBus.Castle.csproj">
-      <Project>{4D65E756-C0C9-42AA-9B73-75E85E77EA7B}</Project>
-      <Name>Rhino.ServiceBus.Castle</Name>
+    <ProjectReference Include="..\..\rhino-esb\Rhino.ServiceBus.Host\Rhino.ServiceBus.Host.csproj">
+      <Project>{8FBBDD2A-A832-4827-9325-C670B6DC06FB}</Project>
+      <Name>Rhino.ServiceBus.Host</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\rhino-esb\Rhino.ServiceBus.StructureMap\Rhino.ServiceBus.StructureMap.csproj">
       <Project>{C0B1E3BD-3481-4E0E-866F-5BEC471C2F4C}</Project>
@@ -83,11 +80,6 @@
       <Project>{0386FF25-A8F7-40E8-91B3-DD98924A9D61}</Project>
       <Name>QueueUtil</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="diacom_config.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
